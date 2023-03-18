@@ -5,8 +5,7 @@
     "@src": "build"
   },
   "scripts": {
-    "preinstall":"npm install -g pm2",
-    "start":"pm2-runtime start build/index.js -i max --name productstore-api",
+    "start":"node build/index.js",
     "start:dev": "node build/index.js",
     "build": "tsc",
     "lint": "eslint . --ext .ts",
