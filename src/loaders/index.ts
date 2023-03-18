@@ -1,14 +1,18 @@
-import Express from "express";
-import express from "@src/loaders/express";
-import Logger from "@src/loaders/logger";
+import type Express from 'express'
+import express from '@src/loaders/express'
+import Logger from '@src/loaders/logger'
+import { DynamoDbInstance } from './database'
 
 export default async ({
-  expressApp,
+  expressApp
 }: {
-  expressApp: Express.Application;
+  expressApp: Express.Application
 }): Promise<void> => {
-  await express({ app: expressApp });
-  Logger.info("✅ Express loaded");
+  await DynamoDbInstance.getInstance()
+  Logger.info('✅ Database loaded and connected!')
 
-  Logger.info("✅ All modules loaded!");
-};
+  await express({ app: expressApp })
+  Logger.info('✅ Express loaded')
+
+  Logger.info('✅ All modules loaded!')
+}
