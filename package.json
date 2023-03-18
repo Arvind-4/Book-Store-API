@@ -5,7 +5,8 @@
     "@src": "build"
   },
   "scripts": {
-    "start": "pm2-runtime build/index.js --no-daemon",
+    "preinstall":"npm i -g pm2",
+    "start":"pm2-runtime start build/index.js -i max --name productstore-api",
     "start:dev": "node build/index.js",
     "build": "tsc",
     "lint": "eslint . --ext .ts",
@@ -30,7 +31,6 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "helmet": "^6.0.1",
-    "pm2": "^5.3.0",
     "winston": "^3.8.2",
     "yup": "^0.32.11"
   },
