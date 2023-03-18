@@ -5,7 +5,7 @@
     "@src": "build"
   },
   "scripts": {
-    "start": "pm2-runtime build/index.js",
+    "start": "node build/index.js",
     "start:dev": "node build/index.js",
     "build": "tsc",
     "lint": "eslint . --ext .ts",
