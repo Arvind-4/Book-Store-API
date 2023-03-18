@@ -1,38 +1,61 @@
 {
-  "name": "productstore-api",
-  "main": "build/index.js",
-  "_moduleAliases": {
-    "@src": "build"
-  },
-  "scripts": {
-    "start":"node build/index.js",
-    "start:dev": "node build/index.js",
-    "build": "tsc",
-    "lint": "eslint . --ext .ts",
-    "lint:fix": "eslint . --ext .ts --fix",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "dev": "tsc-watch --onSuccess \"npm run start:dev\""
-  },
-  "devDependencies": {
-    "@types/cors": "^2.8.13",
-    "@types/express": "^4.17.15",
-    "@types/node": "^18.11.18",
-    "@typescript-eslint/eslint-plugin": "^5.48.1",
-    "@typescript-eslint/parser": "^5.48.1",
-    "eslint": "^8.31.0",
-    "tsc-watch": "^6.0.0",
-    "typescript": "^4.9.4"
-  },
-  "dependencies": {
-    "module-alias": "^2.2.2",
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "helmet": "^6.0.1",
-    "winston": "^3.8.2",
-    "yup": "^0.32.11"
-  },
-  "author": "Arvind .A",
-  "license": "MIT"
+	"name": "productstore-api",
+	"main": "build/index.js",
+	"version": "1.0.0",
+	"description": "Product Store API",
+	"keywords": [
+		"productstore",
+		"api",
+		"typescript",
+		"express",
+		"nodejs",
+		"dynamodb",
+		"cyclic-dynamodb"
+	],
+	"_moduleAliases": {
+		"@src": "build"
+	},
+	"scripts": {
+		"start": "node build/index.js",
+		"start:dev": "node build/index.js",
+		"build": "tsc",
+		"lint": "eslint . --ext .ts",
+		"lint:fix": "eslint . --ext .ts --fix",
+		"format": "prettier --write \"**/*.{ts,tsx,js,jsx,html,json,css,scss,md}\"",
+		"format:check": "prettier --check .",
+		"watch:format": "onchange \"**/*\" -- prettier --write --ignore-unknown {{changed}}",
+		"watch:server": "tsc-watch --onSuccess \"npm run start:dev\"",
+		"dev": "npm-run-all --parallel watch:server watch:format"
+	},
+	"devDependencies": {
+		"@types/cors": "^2.8.13",
+		"@types/express": "^4.17.15",
+		"@types/node": "^18.11.18",
+		"@types/uuid": "^9.0.1",
+		"@typescript-eslint/eslint-plugin": "^5.55.0",
+		"@typescript-eslint/parser": "^5.48.1",
+		"eslint": "^8.36.0",
+		"eslint-config-standard-with-typescript": "^34.0.1",
+		"eslint-plugin-import": "^2.27.5",
+		"eslint-plugin-n": "^15.6.1",
+		"eslint-plugin-promise": "^6.1.1",
+		"npm-run-all": "^4.1.5",
+		"onchange": "^7.1.0",
+		"prettier": "2.8.4",
+		"tsc-watch": "^6.0.0",
+		"typescript": "^5.0.2"
+	},
+	"dependencies": {
+		"cors": "^2.8.5",
+		"cyclic-dynamodb": "^0.0.28",
+		"dotenv": "^16.0.3",
+		"express": "^4.18.2",
+		"helmet": "^6.0.1",
+		"module-alias": "^2.2.2",
+		"uuid": "^9.0.0",
+		"winston": "^3.8.2",
+		"yup": "^0.32.11"
+	},
+	"author": "Arvind .A",
+	"license": "MIT"
 }
