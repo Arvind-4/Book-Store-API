@@ -8,6 +8,7 @@ A Simple Rest API for a Product Store.
 - [Node.js](https://nodejs.org/en/) - Node.js is an open-source, cross-platform JavaScript runtime environment.
 - [Dynamo DB](https://aws.amazon.com/dynamodb/) - Amazon DynamoDB is a fully managed, serverless, key-value NoSQL database designed to run high-performance applications at any scale. DynamoDB offers built-in security, continuous backups, automated multi-Region replication, in-memory caching, and data import and export tools.
 - [Typescript](https://www.typescriptlang.org/) - JavaScript with syntax for types.
+- [Yup](https://github.com/jquense/yup) - Dead simple Object schema validation. 
 - [Cyclic sh](https://www.cyclic.sh) - Deploy Fullstack Javascript Apps: Front-end, Backend, Database, Scheduled tasks. All running with zero-config.
 
 ---
@@ -44,4 +45,4 @@ npm run dev
 
 ## Docs for The Project:
 
-Link
+[Link](https://github.com/Arvind-4/Book-Store-API/blob/main/docs/api-docks.md)
