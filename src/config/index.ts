@@ -10,12 +10,12 @@ export default {
     url: process.env.CYCLIC_URL,
     dbUrl: process.env.CYCLIC_DB,
     bucketName: process.env.CYCLIC_BUCKET_NAME,
-    appId: process.env.CYCLIC_APP_ID
+    appId: process.env.CYCLIC_APP_ID,
   },
   logs: {
-    level: process.env.LOG_LEVEL || 'silly'
+    level: process.env.LOG_LEVEL || 'silly',
   },
   api: {
-    prefix: '/api'
-  }
+    prefix: '/api',
+  },
 }

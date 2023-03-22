@@ -5,7 +5,7 @@ import config from '@src/config'
 import Loaders from '@src/loaders'
 import Logger from '@src/loaders/logger'
 
-async function startServer () {
+async function startServer() {
   const app = express()
 
   await Loaders({ expressApp: app })

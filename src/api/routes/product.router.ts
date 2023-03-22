@@ -4,7 +4,7 @@ import {
   createProduct,
   updateProduct,
   deleteProduct,
-  getSingleProduct
+  getSingleProduct,
 } from '@src/api/services/product.service'
 
 const ProductRouter = Router()

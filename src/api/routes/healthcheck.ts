@@ -6,7 +6,7 @@ const timeElapsed = Date.now()
 const today = new Date(timeElapsed)
 
 const formatTime = (seconds) => {
-  function pad (s) {
+  function pad(s) {
     return (s < 10 ? '0' : '') + s
   }
   const hours = Math.floor(seconds / (60 * 60))
@@ -34,7 +34,7 @@ healthCheckRoute.get('/', (req: Request, res: Response, next: NextFunction) => {
       userInfo: os.userInfo(),
       serverUptime: formatTime(process.uptime()),
       osUptime: formatTime(os.uptime()),
-      reqIP: req.ip // reqIP==your public ip states that trust-proxy is correct in express server
+      reqIP: req.ip, // reqIP==your public ip states that trust-proxy is correct in express server
     }
     res.status(200).json({ status: true, message: healthcheckData })
     next()

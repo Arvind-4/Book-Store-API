@@ -1,4 +1,3 @@
-
 # Simple REST API
 
 A Simple Rest API for a Product Store.
@@ -10,7 +9,6 @@ A Simple Rest API for a Product Store.
 - [Dynamo DB](https://aws.amazon.com/dynamodb/) - Amazon DynamoDB is a fully managed, serverless, key-value NoSQL database designed to run high-performance applications at any scale. DynamoDB offers built-in security, continuous backups, automated multi-Region replication, in-memory caching, and data import and export tools.
 - [Typescript](https://www.typescriptlang.org/) - JavaScript with syntax for types.
 - [Cyclic sh](https://www.cyclic.sh) - Deploy Fullstack Javascript Apps: Front-end, Backend, Database, Scheduled tasks. All running with zero-config.
-
 
 ---
 
@@ -27,16 +25,14 @@ git clone https://github.com/Arvind-4/Book-Store-API .
 - Install Dependencies
 
 ```bash
-npm i 
+npm i
 ```
-
 
 - Run Dev Server
 
 ```bash
 npm run dev
 ```
-
 
 ## LICENSE:
 

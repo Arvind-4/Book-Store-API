@@ -4,7 +4,7 @@ import Logger from '@src/loaders/logger'
 import { DynamoDbInstance } from './database'
 
 export default async ({
-  expressApp
+  expressApp,
 }: {
   expressApp: Express.Application
 }): Promise<void> => {

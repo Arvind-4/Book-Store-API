@@ -13,7 +13,7 @@ export const CategoryEnum = {
   movies: 'movies',
   music: 'music',
   pets: 'pets',
-  other: 'other'
+  other: 'other',
 }
 
 export const yupProductSchema = yup.object({
@@ -27,9 +27,9 @@ export const yupProductSchema = yup.object({
       .string()
       .required('Category name is required')
       .oneOf(Object.values(CategoryEnum)),
-    image: yup.array().of(yup.string()).optional()
+    image: yup.array().of(yup.string()).optional(),
   }),
-  image: yup.array().of(yup.string()).optional()
+  image: yup.array().of(yup.string()).optional(),
 })
 
 export type ProductSchema = yup.InferType<typeof yupProductSchema>

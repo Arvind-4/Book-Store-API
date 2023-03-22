@@ -1,5 +1,4 @@
 import { type Request, type Response } from 'express'
-
 import { DynamoDbInstance } from '@src/loaders/database'
 import { yupProductSchema, ProductSchema } from '@src/api/models/product'
 
@@ -13,13 +12,13 @@ export const createProduct = async (req: Request, res: Response) => {
       return res.status(409).json({
         status: false,
         message: [...error.errors],
-        data: null
+        data: null,
       })
     }
     const id = yupProductSchema.getDefault().id
     const product = {
       ...req.body,
-      id
+      id,
     }
     console.log('product', product)
     const productData = await productCollection.set(id, product)
@@ -27,19 +26,19 @@ export const createProduct = async (req: Request, res: Response) => {
       return res.status(200).json({
         status: true,
         message: 'Product Created Successfully',
-        data: product
+        data: product,
       })
     } else {
       return res.status(409).json({
         status: false,
         message: 'Product Creation Failed',
-        data: null
+        data: null,
       })
     }
   } catch (err) {
     return res.status(err.statusCode || 500).json({
       success: false,
-      message: err.message || 'Internal Server Error'
+      message: err.message || 'Internal Server Error',
     })
   }
 }
@@ -51,19 +50,26 @@ export const updateProduct = async (req: Request, res: Response) => {
     const { name, description, price, category, image } = req.body
     const productId = req.params.id
     const { props: ProductSchema } = await productCollection.get(productId)
+    if (!ProductSchema) {
+      return res.status(409).json({
+        status: false,
+        message: 'Product Not Found',
+        data: null,
+      })
+    }
     const product = {
       name: name || ProductSchema.name,
       description: description || ProductSchema.description,
       price: price || ProductSchema.price,
       category: category || ProductSchema.category,
-      image: image || ProductSchema.image
+      image: image || ProductSchema.image,
     }
     const error = await yupProductSchema.validate(product).catch((err) => err)
     if (error.errors) {
       return res.status(409).json({
         status: false,
         message: [...error.errors],
-        data: null
+        data: null,
       })
     }
     const productData = await productCollection.set(productId, product)
@@ -71,19 +77,20 @@ export const updateProduct = async (req: Request, res: Response) => {
       return res.status(200).json({
         status: true,
         message: 'Product Updated Successfully',
-        data: product
+        data: product,
       })
     } else {
       return res.status(409).json({
         status: false,
         message: 'Product Update Failed',
-        data: null
+        data: null,
       })
     }
   } catch (err) {
     return res.status(err.statusCode || 500).json({
       success: false,
-      message: err.message || 'Internal Server Error'
+      message: err.message || 'Internal Server Error',
+      data: null,
     })
   }
 }
@@ -99,12 +106,12 @@ export const getProducts = async (req: Request, res: Response) => {
     res.status(200).json({
       status: true,
       message: 'Fetched Products Successfully',
-      data: products
+      data: products,
     })
   } catch (err) {
     res.status(err.statusCode || 500).json({
       success: false,
-      message: err.message || 'Internal Server Error'
+      message: err.message || 'Internal Server Error',
     })
   }
 }
@@ -119,19 +126,19 @@ export const deleteProduct = async (req: Request, res: Response) => {
       return res.status(200).json({
         status: true,
         message: 'Product Deleted Successfully',
-        data: productId
+        data: productId,
       })
     } else {
       return res.status(409).json({
         status: false,
         message: 'Product Deletion Failed',
-        data: null
+        data: null,
       })
     }
   } catch (err) {
     return res.status(err.statusCode || 500).json({
       success: false,
-      message: err.message || 'Internal Server Error'
+      message: err.message || 'Internal Server Error',
     })
   }
 }
@@ -142,23 +149,24 @@ export const getSingleProduct = async (req: Request, res: Response) => {
     const productCollection = db.collection('products')
     const productId = req.params.id
     const { props: ProductSchema } = await productCollection.get(productId)
-    if (ProductSchema){
+    if (ProductSchema) {
       return res.status(200).json({
         status: true,
         message: 'Fetched Product Successfully',
-        data: ProductSchema
+        data: ProductSchema,
       })
     } else {
       return res.status(409).json({
         status: false,
         message: 'Product Not Found',
-        data: null
+        data: null,
       })
     }
   } catch (err) {
     res.status(err.statusCode || 500).json({
       success: false,
-      message: err.message || 'Internal Server Error'
+      message: err.message || 'Internal Server Error',
+      data: null,
     })
   }
 }

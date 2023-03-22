@@ -7,11 +7,11 @@ export class DynamoDbInstance {
   private static instance: typeof DynamoDb
   private readonly dbUrl: string = config.cyclicDB.dbUrl
 
-  private constructor () {
+  private constructor() {
     Logger.warn('🔶 New Dynamo DB Instance Created!!')
   }
 
-  private async initialize () {
+  private async initialize() {
     try {
       DynamoDbInstance.instance = await DynamoDb(this.dbUrl)
       Logger.warn('✅ Connected to DynamoDB')
