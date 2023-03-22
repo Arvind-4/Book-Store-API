@@ -40,11 +40,11 @@ npm run dev
 
 ## LICENSE:
 
-MIT LICENSE
+[MIT LICENSE](https://github.com/Arvind-4/Book-Store-API/blob/main/LICENSE)
 
 ## Change Log:
 
-[Change Log]
+[Change Log](https://github.com/Arvind-4/Book-Store-API/commits/main)
 
 ## Docs for The Project:
 
